@@ -4,7 +4,7 @@ import "./Login.css"
 
 export const Login = () => {
     const [email, setEmail] = useState("steve@brownlee.com")
-    const [password, setPassword] = useState("brownlee")
+    const [password, setPassword] = useState("1234")
     const existDialog = useRef()
     const navigate = useNavigate()
 
@@ -20,13 +20,15 @@ export const Login = () => {
             .then(res => res.json())
             .then(authInfo => {
                 if (authInfo.valid) {
-                    localStorage.setItem("rock_token", JSON.stringify(authInfo))
+                    localStorage.setItem("rock_token", JSON.stringify({ token: authInfo.token }));
+                    localStorage.setItem("user_info", JSON.stringify({ userId: authInfo.user_id }));
                     navigate("/")
                 } else {
                     existDialog.current.showModal()
                 }
             })
     }
+    console.log(localStorage.getItem("user_info"));
 
     return (
         <main className="container--login">
