@@ -1,3 +1,4 @@
+//src/components/ApplicationVies.jsx
 import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Authorized } from "./Authorized"
@@ -32,7 +33,7 @@ export const ApplicationViews = () => {
             <Route element={<Authorized />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/allrocks" element={<RockList rocks={rocksState} fetchRocks={fetchRocksFromAPI} />} />
-                <Route path="/create" element={<RockForm fetchRocks={fetchRocksFromAPI} />} />
+                <Route path="/create" element={<RockForm fetchRocksFromAPI={fetchRocksFromAPI} />} />
                 <Route path="/mine" element={<RockList rocks={rocksState} fetchRocks={fetchRocksFromAPI} currentUser={currentUser}/>} />
             </Route>
         </Routes>

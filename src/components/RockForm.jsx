@@ -33,7 +33,7 @@ export const RockForm = ({ fetchRocksFromAPI }) => {
         const rockToSubmit = {
             name: rock.name,
             weight: parseFloat(rock.weight),
-            typeId: rock.typeId // ! Correct key name
+            type_id: rock.typeId // ! Correct key name
         }
 
         await fetch("http://localhost:8000/rocks", {
