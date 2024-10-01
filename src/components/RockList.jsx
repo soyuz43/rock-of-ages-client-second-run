@@ -12,8 +12,8 @@ export const RockList = ({ rocks, fetchRocks, currentUser }) => {
     // Check if currentUser exists before filtering rocks
     const filteredRocks = location.pathname === '/mine' && currentUser
         ? rocks.filter(rock => {
-            console.log("Checking rock:", rock.id, "Owner ID:", rock.ownerId, "Current User ID:", currentUser.userId);
-            return rock.ownerId === currentUser.userId;
+            console.log("Checking rock:", rock.id, "Owner ID:", rock.user.id, "Current User ID:", currentUser.userId);
+            return rock.user.id === currentUser.userId;
         })
         : rocks;
 
